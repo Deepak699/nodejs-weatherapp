@@ -1,4 +1,5 @@
 const request = require('request')
+
 const weather = (latitude,longitude,callback)=>{
     const url = 'http://api.weatherstack.com/current?access_key=7d4e4d51d3bacde608dc90417fc144a0&query='+encodeURIComponent(latitude)+','+encodeURIComponent(longitude)+'&units=m'
     request({url , json:true},(error,{body})=>{
@@ -12,7 +13,7 @@ const weather = (latitude,longitude,callback)=>{
             }
             else
             {
-                callback(undefined,'The temprature is '+ body.current.temperature+' and it feels like '+body.current.feelslike+' degree celsius')
+                callback(undefined,'The temprature is '+ body.current.temperature+' and it feels like '+body.current.feelslike+' degree celsius (last updated on '+body.current.observation_time+')')
 
             }
     })
