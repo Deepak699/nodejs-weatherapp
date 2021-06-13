@@ -6,6 +6,7 @@ const weather = require('./utils/weather')
 
 
 const app = express()
+const port = process.env.PORT || 3000
 
 const publicDir = path.join(__dirname,'../public')
 const viewPath = path.join(__dirname,'../template/views')
@@ -100,6 +101,6 @@ app.get('/*',(req,res)=>{
 
 
 
-app.listen('3000',()=>{
-    console.log("server is up")
+app.listen(port,()=>{
+    console.log("server is up" + port)
 })
